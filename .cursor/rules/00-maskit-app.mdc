@@ -1,0 +1,107 @@
+---
+alwaysApply: true
+---
+
+---
+description: MASKIT App Rules (Next.js)
+globs: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]
+alwaysApply: true
+---
+
+# MASKIT — App Rules (Next.js)
+
+## 🎯 Current Goal
+Build a clean, developer-focused web UI for MASKIT.
+Core workflow: paste text → mask → copy safe output.
+
+Stack:
+- Next.js App Router
+- Tailwind CSS
+- shadcn/ui (Nova preset, Radix)
+- next-themes for theme toggling
+
+---
+
+## ✅ Allowed
+
+### Pages and Routes
+- New pages and routes are allowed
+- Must consult before adding — do not add speculatively
+- Current scope: single masking page only
+
+### Dependencies
+- shadcn/ui components
+- Tailwind CSS utilities
+- Next.js built-ins
+- next-themes
+- Any new npm package must be justified before adding
+
+### API Calls
+- Frontend calls Go backend at `http://localhost:8080`
+- Handle CORS errors gracefully with a clear user message
+- No direct calls to external APIs from the frontend
+
+---
+
+## 🔒 Hard Constraints
+
+1. Dark theme by default, light theme available via toggle.
+   - Use next-themes for theme management
+   - Toggle between dark and light only
+   - Default to dark
+
+2. Developer-focused design.
+   - Clean and minimal
+   - No marketing fluff in the UI
+   - No onboarding flows yet
+
+3. No auth yet.
+   - Do not add login, signup, or session handling
+
+4. No persistence yet.
+   - No localStorage, no cookies, no history
+
+5. Error states are required.
+   - Backend unreachable → clear message
+   - Empty input → prevent submission
+
+6. Loading states are required.
+   - Button must show loading while waiting for API response
+
+7. API contract (do not change):
+   - POST http://localhost:8080/api/mask
+   - Request:  { "text": "..." }
+   - Response: { "masked": "..." }
+
+---
+
+## 🚫 Out of Scope (Do Not Add)
+
+- Authentication or user accounts
+- History or saved sessions
+- Settings or configuration UI
+- Analytics or tracking scripts
+- Marketing pages
+- Mobile-first layout (desktop priority for now)
+
+---
+
+## 🧠 Coding Style
+
+- Functional components only
+- TypeScript strict mode
+- No `any` types
+- Keep components small and focused
+- Tailwind classes only, no inline styles
+- No CSS modules
+
+---
+
+## 🧪 Definition of Done
+
+- Paste text → click Mask It → masked output appears
+- Copy button copies output to clipboard
+- Theme toggle works (dark/light)
+- Loading state shown during API call
+- Error shown if backend unreachable
+- Responsive on desktop
