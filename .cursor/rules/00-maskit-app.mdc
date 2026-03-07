@@ -1,10 +1,6 @@
 ---
-alwaysApply: true
----
-
----
 description: MASKIT App Rules (Next.js)
-globs: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]
+globs: ["maskit-app/**/*.ts", "maskit-app/**/*.tsx", "maskit-app/**/*.js", "maskit-app/**/*.jsx"]
 alwaysApply: true
 ---
 
